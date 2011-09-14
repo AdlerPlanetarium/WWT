@@ -15,6 +15,7 @@ class WWTClient
   end
   
   def  method_missing(method_name,*args)
+    args ||= []
     data = args.first.delete(:data) || ""
     data = data.join(",") if data.class==Array
     args_list = make_arg_list(args.first.merge({:cmd=>method_name}))

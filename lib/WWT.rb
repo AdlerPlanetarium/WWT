@@ -5,7 +5,7 @@ require "WWT/WWT_layer"
 module WWT 
   class << self 
     def new(options={})
-        WWT::WWTClient.new(options)
+        WWTClient.new(options)
     end
   
     def method_missing(method, *args, &block)
