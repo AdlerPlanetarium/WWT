@@ -11,25 +11,23 @@ Earthquake like notifications
 
 Connecting to WWT 
 -----------------
-	
-	Connecting to a WWT instance is as simple as `WWT.new`. This defaults to connecting to *http://0.0.0.0:5050*. You can also pass in a url and port if needed with `WWT.new url, port ` 
-	
-	Once connected you will get back an instance of `WWTClient` which allows you to pass commands off to WWT. 
+Connecting to a WWT instance is as simple as `WWT.new`. This defaults to connecting to *http://0.0.0.0:5050*.
+You can also pass in a url and port if needed with `WWT.new url, port ` 
+Once connected you will get back an instance of `WWTClient` which allows you to pass commands off to WWT. 
 	
 Selecting WWT mode 
 ------------------
-	
-	You can select the current mode by `WWTClient.look_at thing` where thing can be "Earth", "Sky", "SolarSystem" etc
+You can select the current mode by `WWTClient.look_at thing` where thing can be "Earth", "Sky", "SolarSystem" etc
 		
 Incremental movements 
 --------------------
-		
-	You can make the telescope move incrementally (the equivalent of pressing keys in the GUI interface) using `WWTClient.move motion` where motion can be ["Left", "Right", "Up", "Down", "Clockwise", "CounterClockwise",]
+
+You can make the telescope move incrementally (the equivalent of pressing keys in the GUI interface) using `WWTClient.move motion` where motion can be ["Left", "Right", "Up", "Down", "Clockwise", "CounterClockwise",]
 		
 Layers 
 ------
-	
-	We support the creation of layers within the WWT framework using `layer=WWTClient.new_layer :frame=>frame, :name=>name, :data=>['ra','dec','time']` where frame is the frame this layer is sent to and name is a name given to a layer and data tells us what type of data this layer is going to show. This returns an instance of WWT_layer which allows access to that layer. There are many other options that can be passed in through the hash for a full list look at http://www.worldwidetelescope.org/Docs/WorldWideTelescope_lcapi.html. 
+
+We support the creation of layers within the WWT framework using `layer=WWTClient.new_layer :frame=>frame, :name=>name, :data=>['ra','dec','time']` where frame is the frame this layer is sent to and name is a name given to a layer and data tells us what type of data this layer is going to show. This returns an instance of WWT_layer which allows access to that layer. There are many other options that can be passed in through the hash for a full list look at http://www.worldwidetelescope.org/Docs/WorldWideTelescope_lcapi.html. 
 		
 Updating
 --------
