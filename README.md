@@ -37,7 +37,7 @@ We can push data to the layer for visulisation with `layer.update :data=>["10","
 Properties
 ---------- 
 
-Any property of the later can be gotten by `later.property_with_underscores` for example in the WWT documentation (http://www.worldwidetelescope.org/Docs/WorldWideTelescope_lcapi.html#Table_of_Properties) we have "EndTime" to get this we would call layer.end_time and to set it `layer.end_time=`
+Any property of a layer can be got by `later.property_with_underscores`, for example in the WWT documentation (http://www.worldwidetelescope.org/Docs/WorldWideTelescope_lcapi.html#Table_of_Properties) we have "EndTime" to get this we would call `layer.end_time` and to set it `layer.end_time=`
 
 Requirements
 ------------
