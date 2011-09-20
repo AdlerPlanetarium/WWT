@@ -12,6 +12,7 @@ class WWT_layer
   end
   
   def get_property(property_name)
+    puts "running get property"
     name = WWT_layer.sanitize_property_name(property_name.to_s) 
     puts "#{name}"
     result = @telescope.getprop :id=>layer_id, :propname => name
@@ -19,8 +20,13 @@ class WWT_layer
   end
   
   def set_property(property_name,args)
+    puts "running set property"
     name = WWT_layer.sanitize_property_name(property_name.to_s)
     @telescope.setprop :id => layer_id, :propname => name, :propvalue=>args
+  end
+  
+  def update(args)
+    @telescope.update args.merge(:id=>layer_id)
   end
   
   def self.sanitize_property_name(name)

@@ -28,6 +28,8 @@ class WWTClient
   end
   
   def call_command(args_list,data="")
+    puts "#{@url}:#{@port}/layerApi.aspx?#{args_list}"
+    puts "data is #{data}"
     parse_responce(RestClient.post "#{@url}:#{@port}/layerApi.aspx?#{args_list}", data)
     
   end
@@ -50,7 +52,7 @@ class WWTClient
   end
   
   def parse_responce(responce)
-      
+      puts responce
       parse = Hpricot(responce)
       raise "WWT error #{parse.search('h2').inner_html}"if responce.match(/Error/)
       parse.search("layerapi").collect{|l| l.children.map{|c| {c.name =>{:content=>c.inner_html, :properties=>c.attributes}}}}.first
