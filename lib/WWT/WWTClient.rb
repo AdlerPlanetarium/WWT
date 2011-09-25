@@ -1,6 +1,8 @@
 require 'rest_client'
-require 'Hpricot'
+require 'rexml/document'
 require 'WWT/WWT_layer'
+
+include REXML
 
 class WWTClient 
   
@@ -53,9 +55,9 @@ class WWTClient
   
   def parse_responce(responce)
       puts responce
-      parse = Hpricot(responce)
       raise "WWT error #{parse.search('h2').inner_html}"if responce.match(/Error/)
-      parse.search("layerapi").collect{|l| l.children.map{|c| {c.name =>{:content=>c.inner_html, :properties=>c.attributes}}}}.first
+      parse = Document.new responce
+      parse.elements.to_a("/LayerApi/*") {|el| el.children.map{|c| {c.name =>{:content=>c.text, :properties=>c.attributes}}}}.first
   end
     
 end
